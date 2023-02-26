@@ -63,7 +63,7 @@ const loginController = (req,res,next) => {
                 _id: myUser._id,
                 name: myUser.name,
                 email: myUser.email,
-                isAdmin: myUser.isAdmin
+                role: myUser.role
             }
             if (myUser.isAdmin) {
                 console.log('Admin is true, welcome admin!');

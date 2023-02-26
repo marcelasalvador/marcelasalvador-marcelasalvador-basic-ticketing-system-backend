@@ -24,7 +24,7 @@ const isAdmin = (req, res, next) => {
   const token = getTokenFromHeaders(req);
   if (token) {
     const decodedToken = jwtDecode(token);
-    if (decodedToken.isAdmin) {
+    if (decodedToken.role === 'admin') {
       next();
     } else {
       res.status(403).send("Access denied");
@@ -33,6 +33,7 @@ const isAdmin = (req, res, next) => {
     res.status(401).send("Unauthorized");
   }
 };
+
 
 // Export the middleware so that we can use it to create protected routes
 module.exports = {
