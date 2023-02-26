@@ -65,6 +65,9 @@ const loginController = (req,res,next) => {
                 email: myUser.email,
                 isAdmin: myUser.isAdmin
             }
+            if (myUser.isAdmin) {
+                console.log('Admin is true, welcome admin!');
+              }
             const authToken = jwt.sign(
                 payload,
                 process.env.TOKEN_SECRET,

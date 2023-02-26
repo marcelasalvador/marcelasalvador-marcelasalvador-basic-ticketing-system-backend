@@ -8,6 +8,7 @@ const { isAuthenticated, isAdmin } = require("./middleware/jwt.middleware")
 
 // const projectRouter = require('./routes/project.routes');
 // const taskRouter = require('./routes/task.routes');
+const adminRouter = require("./routes/admin.routes")
 const authRouter = require("./routes/auth.routes")
 const PORT = process.env.PORT;
 
@@ -21,7 +22,8 @@ app.use(cors({
 
 app.use(express.json())
 app.use("/auth", authRouter)
-app.use('/api/admin-dashboard', isAdmin);
+app.use('/api/admin-dashboard', isAuthenticated, isAdmin, adminRouter);
+
 // app.use('/api/tasks', isAuthenticated, taskRouter);
 
 
