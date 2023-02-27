@@ -10,7 +10,7 @@ const {
 
 const router = express.Router()
 
-////add respective controllers for: user-dashboard, support-ticket-page, new-ticket
+////add respective controllers for: user-dashboard, support-ticket-page, new-ticket, admin-dashboard
 
 router.get("/user-dashboard", isAuthenticated,isAdmin, (req, res) => {
     res.send("Welcome to the admin dashboard!");

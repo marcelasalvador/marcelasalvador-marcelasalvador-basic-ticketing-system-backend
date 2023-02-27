@@ -65,21 +65,20 @@ const loginController = (req,res,next) => {
                 email: myUser.email,
                 role: myUser.role
             }
-            if (myUser.isAdmin) {
-                console.log('Admin is true, welcome admin!');
-              }
+
             const authToken = jwt.sign(
                 payload,
                 process.env.TOKEN_SECRET,
                 { algorithm: "HS256", expiresIn: "6h" }
             )
 
+            res.cookie('session', authToken, { httpOnly: true });
+
             res.json({
-               
-                authToken: authToken,
-             
-                
+                authToken: authToken,   
             })
+
+            console.log("User role:", payload.role);
 
         })
         .catch(err => res.send(err))
