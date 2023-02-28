@@ -25,9 +25,9 @@ app.use(cookieParser());
 app.use("/auth", authRouter)
 app.use('/api/admin-dashboard', isAuthenticated, isAdmin, ticketRouter);
 app.use('/api/admin-ticket-page', isAuthenticated, isAdmin, ticketRouter)
-app.use("api/user-dashboard", isAuthenticated, ticketRouter)
-app.use("api/user-ticket-page", isAuthenticated, ticketRouter)
-app.use("api/new-ticket", isAuthenticated, ticketRouter)
+app.use("/api/user-dashboard", isAuthenticated, ticketRouter)
+app.use("/api/user-ticket-page", isAuthenticated, ticketRouter)
+app.use("/api/new-ticket", isAuthenticated, ticketRouter)
 
 
 
