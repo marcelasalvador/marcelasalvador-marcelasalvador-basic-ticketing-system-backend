@@ -52,6 +52,6 @@ const ticketSchema = new Schema(
   }
 );
 
-const Ticket = model("User", ticketSchema);
+const Ticket = model("Ticket", ticketSchema);
 
 module.exports = Ticket;
